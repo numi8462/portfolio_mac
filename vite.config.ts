@@ -10,11 +10,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '#components': resolve(__dirname, 'src/components'),
-      '#constants': resolve(__dirname, 'src/constants'),
-      '#store': resolve(__dirname, 'src/store'),
-      '#hoc': resolve(__dirname, 'src/hoc'),
-      '#windows': resolve(__dirname, 'src/windows'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@constants': resolve(__dirname, 'src/constants'),
+      '@store': resolve(__dirname, 'src/store'),
+      '@hoc': resolve(__dirname, 'src/hoc'),
+      '@windows': resolve(__dirname, 'src/windows'),
     },
   },
 })
