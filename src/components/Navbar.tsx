@@ -18,6 +18,7 @@ const Navbar = () => {
         </ul>
       </div>
 
+      {/* 네브바 아이콘 및 시간 */}
       <div>
         <ul>
           {NAV_ICONS.map((icon) => (
