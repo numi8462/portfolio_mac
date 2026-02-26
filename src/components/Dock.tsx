@@ -1,4 +1,4 @@
-import { DOCK_APPS } from '@constants/navbar';
+import { DOCK_APPS } from '@constants/dock';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
@@ -63,6 +63,7 @@ const Dock = () => {
 
   const toogleApp = (app: DockApp) => {
     //todo: 아이콘 토글 추가
+    const currApp = app;
   };
 
   return (
