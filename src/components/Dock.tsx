@@ -35,7 +35,7 @@ const Dock = () => {
       });
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const { left } = dock.getBoundingClientRect();
 
       animateIcons(e.clientX - left);
