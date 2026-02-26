@@ -1,10 +1,10 @@
-import { DOCK_APPS } from '@constants/dock';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
+import { DOCK_APPS } from '@constants/dock';
 
-type DockApp = (typeof DOCK_APPS)[number];
+// type DockApp = (typeof DOCK_APPS)[number];
 
 const Dock = () => {
   const dockRef = useRef<HTMLDivElement>(null);
