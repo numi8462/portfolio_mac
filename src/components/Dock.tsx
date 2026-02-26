@@ -61,10 +61,10 @@ const Dock = () => {
     };
   }, []);
 
-  const toogleApp = (app: DockApp) => {
-    //todo: 아이콘 토글 추가
-    const currApp = app;
-  };
+  // const toogleApp = (app: DockApp) => {
+  //   //todo: 아이콘 토글 추가
+  //   const currApp = app;
+  // };
 
   return (
     <section className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden">
@@ -82,7 +82,7 @@ const Dock = () => {
               data-tooltip-content={app.name}
               data-tooltip-delay-show={150}
               disabled={!app.canOpen}
-              onClick={() => toogleApp(app)}
+              // onClick={() => toogleApp(app)}
             >
               <img
                 src={`/images/${app.icon}`}
