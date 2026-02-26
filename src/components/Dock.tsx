@@ -67,7 +67,7 @@ const Dock = () => {
   // };
 
   return (
-    <section className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden">
+    <section className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none">
       <div
         ref={dockRef}
         className="bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5"
