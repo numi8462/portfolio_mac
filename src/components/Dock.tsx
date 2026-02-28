@@ -67,6 +67,11 @@ const Dock = () => {
 
     const window = windows[app.id];
 
+    if (!window) {
+      console.error(`해당 앱의 윈도우를 찾을 수 없습니다: ${app.id}`);
+      return;
+    }
+
     if (window.isOpen) {
       closeWindow(app.id);
     } else {
