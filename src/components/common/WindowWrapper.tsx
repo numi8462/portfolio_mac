@@ -5,7 +5,15 @@ import type { WindowKey } from 'src/types/types';
 import gsap from 'gsap';
 import { Draggable } from 'gsap/all';
 
-const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey: WindowKey) => {
+interface Position {
+  initialPosition?: { left: number; top: number };
+}
+
+const WindowWrapper = <P extends object>(
+  Component: ComponentType<P>,
+  windowKey: WindowKey,
+  position?: Position
+) => {
   const Wrapped = (props: P) => {
     const { focusWindow, windows } = useWindowStore();
     const { isOpen, zIndex } = windows[windowKey];
@@ -26,6 +34,15 @@ const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey:
 
       if (isOpen) {
         el.style.display = 'block';
+
+        if (!el.dataset.positioned) {
+          gsap.set(el, {
+            x: 100,
+            y: 100,
+          });
+          el.dataset.positioned = 'true';
+        }
+
         gsap.fromTo(
           el,
           { scale: 0.8, opacity: 0, y: 40 },
@@ -52,6 +69,11 @@ const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey:
       const [draggable] = Draggable.create(el, {
         onPress: () => focusWindow(windowKey),
       });
+
+      // Draggable 생성 후 초기 위치 지정
+      if (position?.initialPosition) {
+        gsap.set(el, position.initialPosition);
+      }
 
       return () => draggable.kill();
     }, []);

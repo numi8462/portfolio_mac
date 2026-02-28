@@ -1,6 +1,6 @@
-import WindowControls from '@components/window/WindowControls';
+import WindowControls from '@components/common/WindowControls';
 import { techStack } from '@constants/index';
-import WindowWrapper from '@components/window/WindowWrapper';
+import WindowWrapper from '@components/common/WindowWrapper';
 import { Check, Flag } from 'lucide-react';
 
 const Terminal = () => {
