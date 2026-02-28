@@ -1,4 +1,4 @@
-const blogPosts = [
+export const blogPosts = [
   {
     id: 1,
     date: 'Sep 2, 2025',
@@ -41,7 +41,7 @@ export const techStack = [
   },
 ];
 
-const socials = [
+export const socials = [
   {
     id: 1,
     text: 'Github',
@@ -72,7 +72,7 @@ const socials = [
   },
 ];
 
-const photosLinks = [
+export const photosLinks = [
   {
     id: 1,
     icon: '/icons/gicon1.svg',
@@ -100,7 +100,7 @@ const photosLinks = [
   },
 ];
 
-const gallery = [
+export const gallery = [
   {
     id: 1,
     img: '/images/gal1.png',
