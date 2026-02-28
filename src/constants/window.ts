@@ -1,20 +1,6 @@
+import type { WindowKey, WindowState } from 'src/types/types';
+
 export const INITIAL_Z_INDEX = 1000;
-
-export interface WindowState {
-  isOpen: boolean;
-  zIndex: number;
-  data: unknown;
-}
-
-export type WindowKey =
-  | 'finder'
-  | 'contact'
-  | 'resume'
-  | 'safari'
-  | 'photos'
-  | 'terminal'
-  | 'txtfile'
-  | 'imgfile';
 
 export const WINDOW_CONFIG: Record<WindowKey, WindowState> = {
   finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },

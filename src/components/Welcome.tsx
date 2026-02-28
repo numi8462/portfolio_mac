@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
-import type { FontWeightType } from 'src/types/font';
+import type { FontWeightType } from 'src/types/types';
 
 const FONT_WEIGHTS: FontWeightType = {
   subtitle: { min: 100, max: 500, default: 100 },

@@ -1,9 +1,5 @@
-import {
-  INITIAL_Z_INDEX,
-  WINDOW_CONFIG,
-  type WindowKey,
-  type WindowState,
-} from '@constants/window';
+import { INITIAL_Z_INDEX, WINDOW_CONFIG } from '@constants/window';
+import type { WindowKey, WindowState } from 'src/types/types';
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
