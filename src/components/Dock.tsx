@@ -3,10 +3,11 @@ import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
 import { DOCK_APPS } from '@constants/dock';
-
-// type DockApp = (typeof DOCK_APPS)[number];
+import { useWindowStore } from '@store/window';
+import type { DockApp } from 'src/types/types';
 
 const Dock = () => {
+  const { openWindow, closeWindow, windows } = useWindowStore();
   const dockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -61,10 +62,19 @@ const Dock = () => {
     };
   }, []);
 
-  // const toogleApp = (app: DockApp) => {
-  //   //todo: 아이콘 토글 추가
-  //   const currApp = app;
-  // };
+  const toogleApp = (app: DockApp) => {
+    if (!app.canOpen) return;
+
+    const window = windows[app.id];
+
+    if (window.isOpen) {
+      closeWindow(app.id);
+    } else {
+      openWindow(app.id);
+    }
+
+    console.log(window);
+  };
 
   return (
     <section className="absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none">
@@ -76,13 +86,13 @@ const Dock = () => {
           <div key={app.id} className="relative flex justify-center">
             <button
               type="button"
-              className="size-14 3xl:size-20 cursor-pointer"
+              className="size-13 sm:size-14 3xl:size-20 cursor-pointer"
               aria-label={app.name}
               data-tooltip-id="dock-tooltip"
               data-tooltip-content={app.name}
               data-tooltip-delay-show={150}
               disabled={!app.canOpen}
-              // onClick={() => toogleApp(app)}
+              onClick={() => toogleApp(app)}
             >
               <img
                 src={`/images/${app.icon}`}

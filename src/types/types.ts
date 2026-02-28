@@ -7,6 +7,14 @@ interface WeightRange {
 
 export type FontWeightType = Record<string, WeightRange>;
 
+// dock app
+export interface DockApp {
+  id: WindowKey;
+  name: string;
+  icon: string;
+  canOpen: boolean;
+}
+
 // window
 export interface WindowState {
   isOpen: boolean;
@@ -22,4 +30,5 @@ export type WindowKey =
   | 'photos'
   | 'terminal'
   | 'txtfile'
-  | 'imgfile';
+  | 'imgfile'
+  | 'trash';
