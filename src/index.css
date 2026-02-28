@@ -42,28 +42,8 @@ body {
     @apply p-1 hover:bg-gray-200 rounded hover:cursor-default;
   }
 
-  #window-controls {
-    @apply flex gap-2;
-
-    .close {
-      @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
-    }
-
-    .minimize {
-      @apply size-3.5 rounded-full bg-[#ffc030];
-    }
-
-    .maximize {
-      @apply size-3.5 rounded-full bg-[#2acb42];
-    }
-  }
-
   #window-header {
     @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
-
-    p {
-      @apply shrink-0;
-    }
   }
 
   #safari {

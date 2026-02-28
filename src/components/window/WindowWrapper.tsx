@@ -1,6 +1,6 @@
 import { useGSAP } from '@gsap/react';
 import { useWindowStore } from '@store/window';
-import { useLayoutEffect, useRef, type ComponentType } from 'react';
+import { useRef, type ComponentType } from 'react';
 import type { WindowKey } from 'src/types/types';
 import gsap from 'gsap';
 import { Draggable } from 'gsap/all';
@@ -10,18 +10,39 @@ const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey:
     const { focusWindow, windows } = useWindowStore();
     const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef<HTMLElement>(null);
+    const isMounted = useRef(false);
 
     useGSAP(() => {
       const el = ref.current;
-      if (!el || !isOpen) return;
+      if (!el) return;
 
-      el.style.display = 'block';
+      if (!isMounted.current) {
+        isMounted.current = true;
+        if (!isOpen) {
+          el.style.display = 'none';
+          return;
+        }
+      }
 
-      gsap.fromTo(
-        el,
-        { scale: 0.8, opacity: 0, y: 40 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
-      );
+      if (isOpen) {
+        el.style.display = 'block';
+        gsap.fromTo(
+          el,
+          { scale: 0.8, opacity: 0, y: 40 },
+          { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+        );
+      } else {
+        gsap.to(el, {
+          scale: 0.8,
+          opacity: 0,
+          y: 30,
+          duration: 0.15,
+          ease: 'power3.in',
+          onComplete: () => {
+            el.style.display = 'none';
+          },
+        });
+      }
     }, [isOpen]);
 
     useGSAP(() => {
@@ -32,14 +53,8 @@ const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey:
         onPress: () => focusWindow(windowKey),
       });
 
-      return () => draggable.kill(); // cleanup
-    }, []); // isOpen 조건 제거, 최초 1회만 등록
-
-    useLayoutEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-      el.style.display = isOpen ? 'block' : 'none';
-    }, [isOpen]);
+      return () => draggable.kill();
+    }, []);
 
     return (
       <section id={windowKey} ref={ref} style={{ zIndex }} className="absolute">

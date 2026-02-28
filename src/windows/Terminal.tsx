@@ -1,12 +1,13 @@
+import WindowControls from '@components/window/WindowControls';
 import { techStack } from '@constants/index';
-import WindowWrapper from '@hoc/WindowWrapper';
+import WindowWrapper from '@components/window/WindowWrapper';
 import { Check, Flag } from 'lucide-react';
 
 const Terminal = () => {
   return (
     <>
       <div id="window-header">
-        <p>명령 프롬프트</p>
+        <WindowControls target="terminal" />
         <h2>기술 스택</h2>
       </div>
 
