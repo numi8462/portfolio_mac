@@ -35,24 +35,6 @@ body {
   main {
     @apply w-dvw h-dvh overflow-hidden;
   }
-
-  nav {
-    @apply flex justify-between items-center bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;
-
-    div {
-      @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
-    }
-
-    ul {
-      p {
-        @apply text-sm cursor-pointer hover:underline transition-all;
-      }
-    }
-
-    time {
-      @apply text-sm font-medium text-black;
-    }
-  }
 }
 
 @layer components {
@@ -78,6 +60,10 @@ body {
 
   #window-header {
     @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
+
+    p {
+      @apply shrink-0;
+    }
   }
 
   #safari {
