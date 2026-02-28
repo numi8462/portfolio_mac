@@ -28,8 +28,12 @@ const WindowWrapper = <P extends object>(Component: ComponentType<P>, windowKey:
       const el = ref.current;
       if (!el) return;
 
-      Draggable.create(el, { onPress: () => focusWindow(windowKey) });
-    }, []);
+      const [draggable] = Draggable.create(el, {
+        onPress: () => focusWindow(windowKey),
+      });
+
+      return () => draggable.kill(); // cleanup
+    }, []); // isOpen 조건 제거, 최초 1회만 등록
 
     useLayoutEffect(() => {
       const el = ref.current;
