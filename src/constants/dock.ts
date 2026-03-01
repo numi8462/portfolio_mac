@@ -3,7 +3,7 @@ import type { DockApp } from 'src/types/types';
 export const DOCK_APPS: DockApp[] = [
   {
     id: 'finder',
-    name: '포트폴리오',
+    name: '이력서',
     icon: 'finder.png',
     canOpen: true,
   },

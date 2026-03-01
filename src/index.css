@@ -39,7 +39,7 @@ body {
 
 @layer components {
   .icon {
-    @apply p-1 hover:bg-gray-200 rounded hover:cursor-default shrink-0;
+    @apply p-1 hover:bg-gray-200 rounded hover:cursor-pointer shrink-0;
   }
 
   #window-header {

@@ -1,7 +1,10 @@
 import { NAV_ICONS, NAV_ITEMS } from '@constants/navbar';
+import { useWindowStore } from '@store/window';
 import dayjs from 'dayjs';
 
 const Navbar = () => {
+  const { openWindow } = useWindowStore();
+
   return (
     <nav className="flex items-center justify-between h-8 bg-white/70 backdrop-blur-md fixed top-0 w-full z-50 px-2 text-[13px]">
       {/* 왼쪽: 로고 및 메뉴 */}
@@ -16,6 +19,7 @@ const Navbar = () => {
             <li
               key={item.id}
               className="px-3 py-1 rounded hover:bg-black/10 transition-colors cursor-pointer"
+              onClick={() => openWindow(item.type)}
             >
               {item.name}
             </li>

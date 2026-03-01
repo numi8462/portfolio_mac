@@ -1,7 +1,9 @@
-export const NAV_ITEMS = [
-  { id: 1, name: '포트폴리오' },
-  { id: 2, name: '연락' },
-  { id: 3, name: '프로젝트' },
+import type { Navbar } from 'src/types/types';
+
+export const NAV_ITEMS: Navbar[] = [
+  { id: 1, name: '이력서', type: 'resume' },
+  { id: 2, name: '연락', type: 'contact' },
+  { id: 3, name: '프로젝트', type: 'project' },
 ];
 
 export const NAV_ICONS = [

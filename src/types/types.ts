@@ -7,6 +7,13 @@ interface WeightRange {
 
 export type FontWeightType = Record<string, WeightRange>;
 
+// navbar
+export interface Navbar {
+  id: number;
+  name: string;
+  type: WindowKey;
+}
+
 // dock app
 export interface DockApp {
   id: WindowKey;
@@ -31,4 +38,5 @@ export type WindowKey =
   | 'terminal'
   | 'txtfile'
   | 'imgfile'
-  | 'trash';
+  | 'trash'
+  | 'project';
