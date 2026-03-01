@@ -5,7 +5,7 @@ import type { FontWeightType } from 'src/types/types';
 
 const FONT_WEIGHTS: FontWeightType = {
   subtitle: { min: 100, max: 500, default: 100 },
-  title: { min: 400, max: 900, default: 400 },
+  title: { min: 100, max: 900, default: 100 },
 };
 
 const renderText = (text: string, className: string, baseWeight: number = 400) => {
@@ -75,7 +75,7 @@ const Welcome = () => {
 
   return (
     <section className="text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10">
-      <h1 ref={titleRef}>{renderText('portfolio', 'text-9xl max-sm:text-7xl italic', 100)}</h1>
+      <h1 ref={titleRef}>{renderText('portfolio', 'text-9xl max-sm:text-7xl italic ', 100)}</h1>
       <p
         ref={subtitleRef}
         className="text-[16px] text-center text-gray-200 mt-7 break-keep overflow-wrap-anywhere"
