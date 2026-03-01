@@ -58,6 +58,6 @@ const Resume = () => {
   );
 };
 
-const ResumeWindow = WindowWrapper(Resume, 'resume');
+const ResumeWindow = WindowWrapper(Resume, 'resume', { initialPosition: { left: 10, top: 40 } });
 
 export default ResumeWindow;
