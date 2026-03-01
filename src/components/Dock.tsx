@@ -112,7 +112,8 @@ const Dock = () => {
         <Tooltip
           id="dock-tooltip"
           place="top"
-          className="py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-blue-200! text-blue-900! shadow-2xl!"
+          offset={16}
+          className="py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-purple-200! text-black! shadow-2xl!"
         />
       </div>
     </section>

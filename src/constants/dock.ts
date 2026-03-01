@@ -9,7 +9,7 @@ export const DOCK_APPS: DockApp[] = [
   },
   {
     id: 'safari',
-    name: 'Articles',
+    name: '블로그',
     icon: 'safari.png',
     canOpen: true,
   },
