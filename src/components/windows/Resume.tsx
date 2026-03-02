@@ -27,12 +27,14 @@ const Resume = () => {
         </a>
       </div>
 
-      <Document file="files/resume.pdf" onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
-        <Page pageNumber={currentPage} renderTextLayer renderAnnotationLayer />
-      </Document>
+      <div className="overflow-y-auto" style={{ maxHeight: 'calc(100vh - 240px)' }}>
+        <Document file="files/resume.pdf" onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+          <Page pageNumber={currentPage} renderTextLayer renderAnnotationLayer />
+        </Document>
+      </div>
 
       {numPages > 0 && (
-        <div className="flex items-center justify-center gap-3 py-2">
+        <div className="relative z-10 flex items-center justify-center gap-3 py-2">
           <button
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
@@ -40,11 +42,9 @@ const Resume = () => {
           >
             <ChevronLeft className="icon" />
           </button>
-
           <span className="text-sm">
             {currentPage} / {numPages}
           </span>
-
           <button
             onClick={() => setCurrentPage((p) => Math.min(p + 1, numPages))}
             disabled={currentPage === numPages}
