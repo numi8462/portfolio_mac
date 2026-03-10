@@ -3,7 +3,7 @@ import type { Navbar } from 'src/types/types';
 export const NAV_ITEMS: Navbar[] = [
   { id: 1, name: '이력서', type: 'resume' },
   { id: 2, name: '연락', type: 'contact' },
-  { id: 3, name: '프로젝트', type: 'project' },
+  { id: 3, name: '프로젝트', type: 'finder' },
 ];
 
 export const NAV_ICONS = [

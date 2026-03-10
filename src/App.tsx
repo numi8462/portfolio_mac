@@ -1,6 +1,7 @@
 import Dock from '@components/Dock';
 import Navbar from '@components/Navbar';
 import Welcome from '@components/Welcome';
+import Finder from '@components/windows/Finder';
 import Resume from '@components/windows/Resume';
 import Safari from '@components/windows/Safari';
 import Terminal from '@components/windows/Terminal';
@@ -19,6 +20,7 @@ function App() {
       <Terminal />
       <Safari />
       <Resume />
+      <Finder />
     </main>
   );
 }

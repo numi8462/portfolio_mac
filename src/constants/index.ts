@@ -98,7 +98,7 @@ export const gallery = [
 const WORK_LOCATION = {
   id: 1,
   type: 'work',
-  name: 'Work',
+  name: '프로젝트',
   icon: '/icons/work.svg',
   kind: 'folder',
   children: [
@@ -266,7 +266,7 @@ const WORK_LOCATION = {
 const ABOUT_LOCATION = {
   id: 2,
   type: 'about',
-  name: 'About me',
+  name: '프로필',
   icon: '/icons/info.svg',
   kind: 'folder',
   children: [
@@ -319,7 +319,7 @@ const ABOUT_LOCATION = {
 const RESUME_LOCATION = {
   id: 3,
   type: 'resume',
-  name: 'Resume',
+  name: '이력서',
   icon: '/icons/file.svg',
   kind: 'folder',
   children: [
@@ -329,7 +329,7 @@ const RESUME_LOCATION = {
       icon: '/images/pdf.png',
       kind: 'file',
       fileType: 'pdf',
-      // you can add `href` if you want to open a hosted resume
+      position: 'top-10 left-10',
       // href: "/your/resume/path.pdf",
     },
   ],
@@ -338,7 +338,7 @@ const RESUME_LOCATION = {
 const TRASH_LOCATION = {
   id: 4,
   type: 'trash',
-  name: 'Trash',
+  name: '쓰레기통',
   icon: '/icons/trash.svg',
   kind: 'folder',
   children: [
