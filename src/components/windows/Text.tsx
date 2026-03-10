@@ -98,6 +98,6 @@ const Text = () => {
   );
 };
 
-const TextWindow = WindowWrapper(Text, 'txtfile', { initialPosition: { left: 150, top: 100 } });
+const TextWindow = WindowWrapper(Text, 'txtfile', { initialPosition: { left: 1000, top: 50 } });
 
 export default TextWindow;
