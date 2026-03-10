@@ -2,9 +2,11 @@ import Dock from '@components/Dock';
 import Navbar from '@components/Navbar';
 import Welcome from '@components/Welcome';
 import Finder from '@components/windows/Finder';
+import Image from '@components/windows/Image';
 import Resume from '@components/windows/Resume';
 import Safari from '@components/windows/Safari';
 import Terminal from '@components/windows/Terminal';
+import Text from '@components/windows/Text';
 import gsap from 'gsap';
 
 import { Draggable } from 'gsap/all';
@@ -21,6 +23,8 @@ function App() {
       <Safari />
       <Resume />
       <Finder />
+      <Text />
+      <Image />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import { useLocationStore } from '@store/location';
 import { useWindowStore } from '@store/window';
 import clsx from 'clsx';
 import { Search } from 'lucide-react';
+import type { WindowKey } from 'src/types/types';
 
 // locations의 최상위 값들 (work, about, resume, trash)
 type Location = (typeof locations)[keyof typeof locations];
@@ -17,22 +18,36 @@ type SidebarItem = Location | Project;
 
 type LocationChild = Location['children'][number];
 
+// fileType을 가진 아이템인지 확인하는 타입 가드
+const hasFileType = (item: LocationChild): item is LocationChild & { fileType: string } => {
+  return 'fileType' in item;
+};
+
 const Finder = () => {
   const { activeLocation, setActiveLocation } = useLocationStore();
   const { openWindow } = useWindowStore();
 
   const openItem = (item: LocationChild) => {
-    if ('fileType' in item && item.fileType === 'pdf') return openWindow('resume');
+    // PDF 파일은 이력서 창으로 열기
+    if (hasFileType(item) && item.fileType === 'pdf') return openWindow('resume');
+
+    // 폴더는 하위 위치로 이동
     if (item.kind === 'folder' && 'children' in item) return setActiveLocation(item);
+
+    // fig 또는 url 파일은 새 탭에서 열기
     if (
-      'fileType' in item &&
+      hasFileType(item) &&
       ['fig', 'url'].includes(item.fileType) &&
       'href' in item &&
       typeof item.href === 'string'
     )
       return window.open(item.href, '_blank');
 
-    openWindow(`${item.fileType}${item.kind}`, item);
+    // txt, img 파일은 해당 윈도우로 열기
+    if (hasFileType(item) && item.fileType !== 'fig' && item.fileType !== 'url') {
+      const windowKey = `${item.fileType}${item.kind}` as WindowKey;
+      return openWindow(windowKey, item);
+    }
   };
 
   const renderList = (items: SidebarItem[]) =>
