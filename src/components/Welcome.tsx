@@ -1,6 +1,6 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { FontWeightType } from 'src/types/types';
 
 const FONT_WEIGHTS: FontWeightType = {
@@ -62,6 +62,7 @@ const textHover = (container: HTMLElement | null, type: keyof typeof FONT_WEIGHT
 const Welcome = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const [showMobileWarning, setShowMobileWarning] = useState(true);
 
   useGSAP(() => {
     const titleCleanup = textHover(titleRef.current, 'title');
@@ -74,15 +75,41 @@ const Welcome = () => {
   }, []);
 
   return (
-    <section className="text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10">
-      <h1 ref={titleRef}>{renderText('portfolio', 'text-9xl max-sm:text-7xl italic ', 100)}</h1>
-      <p
-        ref={subtitleRef}
-        className="text-[16px] text-center text-gray-200 mt-7 break-keep overflow-wrap-anywhere"
-      >
-        {renderText('안녕하세요! 볼 수 없는 가치를 보여주는 개발자 김영호입니다.', 'text-2xl', 100)}
-      </p>
-    </section>
+    <>
+      <section className="text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10">
+        <h1 ref={titleRef}>{renderText('portfolio', 'text-9xl max-sm:text-7xl italic ', 100)}</h1>
+        <p
+          ref={subtitleRef}
+          className="text-[16px] text-center text-gray-200 mt-7 break-keep overflow-wrap-anywhere"
+        >
+          {renderText(
+            '안녕하세요! 볼 수 없는 가치를 보여주는 개발자 김영호입니다.',
+            'text-2xl',
+            100
+          )}
+        </p>
+      </section>
+
+      {/* 모바일 경고 팝업 */}
+      {showMobileWarning && (
+        <div className="lg:hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-xl p-6 shadow-2xl max-w-sm mx-4 text-center relative">
+            <button
+              onClick={() => setShowMobileWarning(false)}
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-xl cursor-pointer"
+            >
+              ✕
+            </button>
+            <p className="text-gray-800 font-medium mb-2">📱 모바일</p>
+            <p className="text-gray-600 text-sm">
+              이 포트폴리오는 데스크탑용으로 개발되었습니다.
+              <br />
+              데스크탑에서 확인해주세요!
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
