@@ -21,13 +21,20 @@ const Text = () => {
   const [markdown, setMarkdown] = useState<string>('');
 
   useEffect(() => {
+    // Clear markdown when switching to a file without mdFile
+    if (!data?.mdFile) {
+      setMarkdown('');
+      return;
+    }
+
     if (data?.mdFile) {
+      setMarkdown(''); // Clear previous content before fetching new
       fetch(data.mdFile)
         .then((res) => res.text())
         .then((text) => setMarkdown(text))
         .catch(() => setMarkdown('Failed to load markdown file.'));
     }
-  }, [data?.mdFile]);
+  }, [data]);
 
   return (
     <>
