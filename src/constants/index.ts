@@ -17,37 +17,6 @@ export const techStack = [
   },
 ];
 
-export const socials = [
-  {
-    id: 1,
-    text: 'Github',
-    icon: '/icons/github.svg',
-    bg: '#f4656b',
-    link: 'https://github.com/JavaScript-Mastery-Pro',
-  },
-  {
-    id: 2,
-    text: 'Platform',
-    icon: '/icons/atom.svg',
-    bg: '#4bcb63',
-    link: 'https://jsmastery.com/',
-  },
-  {
-    id: 3,
-    text: 'Twitter/X',
-    icon: '/icons/twitter.svg',
-    bg: '#ff866b',
-    link: 'https://x.com/jsmasterypro',
-  },
-  {
-    id: 4,
-    text: 'LinkedIn',
-    icon: '/icons/linkedin.svg',
-    bg: '#05b6f6',
-    link: 'https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all',
-  },
-];
-
 export const photosLinks = [
   {
     id: 1,
@@ -76,25 +45,6 @@ export const photosLinks = [
   },
 ];
 
-export const gallery = [
-  {
-    id: 1,
-    img: '/images/gal1.png',
-  },
-  {
-    id: 2,
-    img: '/images/gal2.png',
-  },
-  {
-    id: 3,
-    img: '/images/gal3.png',
-  },
-  {
-    id: 4,
-    img: '/images/gal4.png',
-  },
-];
-
 const WORK_LOCATION = {
   id: 1,
   type: 'work',
@@ -109,7 +59,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-10 left-5', // icon position inside Finder
-      windowPosition: 'top-[5vh] left-5', // optional: Finder window position
+      windowPosition: 'top-[10vh] right-25', // optional: Finder window position
       children: [
         {
           id: 1,
@@ -157,7 +107,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-52 right-80',
-      windowPosition: 'top-[20vh] left-7',
+      windowPosition: 'top-[20vh] right-80',
       children: [
         {
           id: 1,
@@ -196,7 +146,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-10 left-80',
-      windowPosition: 'top-[33vh] left-7',
+      windowPosition: 'top-[33vh] right-27',
       children: [
         {
           id: 1,
@@ -233,6 +183,45 @@ const WORK_LOCATION = {
           fileType: 'img',
           position: 'top-52 right-30',
           imageUrl: '/images/project-3-1.png',
+        },
+      ],
+    },
+
+    // ▶ Project 4
+    {
+      id: 8,
+      name: 'Mac-포트폴리오',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-45 right-30',
+      windowPosition: 'top-[50vh] right-57',
+      children: [
+        {
+          id: 1,
+          name: '포트폴리오.txt',
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-5 left-10',
+          mdFile: '/files/portfolio.md',
+        },
+        {
+          id: 2,
+          name: '포트폴리오.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          href: 'https://portfolio-mac-gamma.vercel.app/',
+          position: 'top-10 right-20',
+        },
+        {
+          id: 3,
+          name: '깃허브.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          href: 'https://github.com/numi8462/portfolio_mac',
+          position: 'top-50 right-30',
         },
       ],
     },

@@ -35,6 +35,6 @@ export const DOCK_APPS: DockApp[] = [
     id: 'trash',
     name: '쓰레기통',
     icon: 'trash.png',
-    canOpen: false,
+    canOpen: true,
   },
 ];

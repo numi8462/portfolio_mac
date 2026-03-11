@@ -3,11 +3,14 @@ import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
 import { DOCK_APPS } from '@constants/dock';
+import { locations } from '@constants/index';
 import { useWindowStore } from '@store/window';
+import { useLocationStore } from '@store/location';
 import type { DockApp } from 'src/types/types';
 
 const Dock = () => {
   const { openWindow, closeWindow, windows } = useWindowStore();
+  const { setActiveLocation } = useLocationStore();
   const dockRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -63,6 +66,13 @@ const Dock = () => {
   }, []);
 
   const toogleApp = (app: DockApp) => {
+    // 쓰레기통은 finder를 열고 쓰레기통 위치로 이동
+    if (app.id === 'trash') {
+      openWindow('finder');
+      setActiveLocation(locations.trash);
+      return;
+    }
+
     if (!app.canOpen) return;
 
     const window = windows[app.id];

@@ -11,7 +11,7 @@ import type { WindowKey } from 'src/types/types';
 type Location = (typeof locations)[keyof typeof locations];
 
 // work.children의 프로젝트들
-type Project = (typeof locations.work.children)[number];
+export type Project = (typeof locations.work.children)[number];
 
 // 사이드바 렌더링용 유니온
 type SidebarItem = Location | Project;
