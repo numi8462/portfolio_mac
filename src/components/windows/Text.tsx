@@ -76,7 +76,7 @@ const Text = () => {
                 ),
                 li: ({ ...props }) => <li className="text-sm text-gray-700 mb-1" {...props} />,
                 code: ({ ...props }) => (
-                  <code className="text-xs bg-gray-100 px-1 py-0.5 rounded" {...props} />
+                  <code className="text-xs bg-gray-100 px-1 py-0.5 rounded text-black" {...props} />
                 ),
                 pre: ({ ...props }) => (
                   <pre

@@ -107,7 +107,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-52 right-80',
-      windowPosition: 'top-[20vh] right-80',
+      windowPosition: 'top-[10vh] right-50',
       children: [
         {
           id: 1,
@@ -146,7 +146,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-10 left-80',
-      windowPosition: 'top-[33vh] right-27',
+      windowPosition: 'top-[25vh] right-20',
       children: [
         {
           id: 1,
@@ -194,7 +194,7 @@ const WORK_LOCATION = {
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-45 right-30',
-      windowPosition: 'top-[50vh] right-57',
+      windowPosition: 'top-[40vh] right-30',
       children: [
         {
           id: 1,
@@ -221,6 +221,45 @@ const WORK_LOCATION = {
           kind: 'file',
           fileType: 'url',
           href: 'https://github.com/numi8462/portfolio_mac',
+          position: 'top-50 right-30',
+        },
+      ],
+    },
+
+    // Project 5
+    {
+      id: 9,
+      name: 'gogoQ',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-25 right-60',
+      windowPosition: 'top-[30vh] right-60',
+      children: [
+        {
+          id: 1,
+          name: 'gogoQ.txt',
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-5 left-10',
+          mdFile: '/files/gogoq.md',
+        },
+        {
+          id: 2,
+          name: 'gogoq.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          href: 'https://gogoq.vercel.app',
+          position: 'top-10 right-20',
+        },
+        {
+          id: 3,
+          name: '깃허브.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          href: 'https://github.com/numi8462/gogoq',
           position: 'top-50 right-30',
         },
       ],
